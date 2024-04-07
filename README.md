@@ -1,6 +1,6 @@
 <!--lint disable double-link-->
 
-# Awesome Pytterns | Production-ready Python patterns.
+# Awesome Python Patterns
 
 > A curated list of production-ready and real-world Python patterns.
 
