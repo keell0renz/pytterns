@@ -6,11 +6,11 @@
 
 ## Contents
 
--[General](#general)
--[SDK Development](#sdk-development)
--[Back-End Development](#back-end-development)
--[CLI Applications](#cli-applications)
--[Generative AI](#generative-ai)
+- [General](#general)
+- [SDK Development](#sdk-development)
+- [Back-End Development](#back-end-development)
+- [CLI Applications](#cli-applications)
+- [Generative AI](#generative-ai)
 
 ## General
 
