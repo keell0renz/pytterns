@@ -1,6 +1,6 @@
 <!--lint disable double-link-->
 
-# Awesome Python Patterns
+# Awesome Python Patterns 🐍
 
 > A curated list of production-ready and real-world Python patterns.
 
