@@ -7,12 +7,17 @@
 ## Contents
 
 - [General](#general)
+- [Documentation and Typing](#documentation-and-typing)
 - [SDK Development](#sdk-development)
 - [Back-End Development](#back-end-development)
 - [CLI Applications](#cli-applications)
 - [Generative AI](#generative-ai)
 
 ## General
+
+Under construction 🛠️ ...
+
+## Documentation and Typing
 
 Under construction 🛠️ ...
 
