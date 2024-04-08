@@ -200,7 +200,7 @@ Remember that other people DO NOT KNOW your code. The best way to document a fun
 * It is awesome to include a code snippet how function and/or class should work.
 * Also, it is fantastic to give examples of data your function and/or class expects.
 
-Similar applies to classes, where you also tell about the class itself. Also it is a good idea to use `@property` so you could also document properties for other developers.
+Similar stuff applies to classes, where you additionally tell about the class itself. Also it is a good idea to use `@property` so you could also document properties for other developers.
 
 ```python
 class Circle:
