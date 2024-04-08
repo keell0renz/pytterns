@@ -194,7 +194,7 @@ def function(v: list[float], a: float) -> list[float]:
 ```
 
 Remember that other people DO NOT KNOW your code. The best way to document a function is to:
-* Properly parameters and return values of function and/or class.
+* Properly type parameters and return values of function and/or class.
 * Explain what function and/or class does, highlight parameter names.
 * It is a good practice to leave a link to relevant external documentation.
 * It is awesome to include a code snippet how function and/or class should work.
