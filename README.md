@@ -171,7 +171,109 @@ def choose_variable(option: VariableOptions):
 
 ## Documentation and Typing
 
-Under construction 🛠️ ...
+The whole point of documentation and typing is to help other developers and yourself
+later to work with your code. 90% of bugs and exceptions appear because of using incorrect datatypes, trying to access non-existend variables and data, etc. The best way
+to prevent that is helping developer and the IDE to understand what your code takes and what returns.
+
+```python
+def function(v: list[float], a: float) -> list[float]:
+    """
+    Takes a vector `v` and multiplies it by scalar `a`, returns a vector.
+
+    More in [docs](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
+
+    ```python
+    function(
+        v=[0.1, 0.2, 0.3, 0.4, 0.5],
+        a=42
+    )
+    ```
+    """
+
+    return [a * x_i for x_i in v]
+```
+
+Remember that other people DO NOT KNOW your code. The best way to document a function is to:
+* Properly parameters and return values of function and/or class.
+* Explain what function and/or class does, highlight parameter names.
+* It is a good practice to leave a link to relevant external documentation.
+* It is awesome to include a code snippet how function and/or class should work.
+* Also, it is fantastic to give examples of data your function and/or class expects.
+
+Similar applies to classes, where you also tell about the class itself. Also it is a good idea to use `@property`, so you could also document properties for other developers.
+
+```python
+class Circle:
+    """This is a fancy Circle class."""
+
+    def __init__(self, radius: float) -> None:
+        self._radius = radius
+
+    @property
+    def radius(self) -> float:
+        """Get the radius of the circle."""
+        return self._radius
+
+    @radius.setter
+    def radius(self, value: float) -> None:
+        """Set the radius of the circle."""
+        if value >= 0:
+            self._radius = value
+        else:
+            raise ValueError("Radius cannot be negative")
+
+    @radius.deleter
+    def radius(self) -> None:
+        """Delete the radius of the circle."""
+        del self._radius
+
+    @property
+    def diameter(self) -> float:
+        """Compute the diameter of the circle."""
+        return self._radius * 2
+```
+
+Also, it is a great practice to use `@dataclass` and `TypedDict`, they improve code readibility and help linters perform static checking and autocomplete. `@dataclass` is
+useful as a lightweight data transfer object, but for more complex scenarios use `pydantic` schemas.
+
+```python
+from dataclasses import dataclass, astuple, asdict, field
+from typing import Optional
+
+@dataclass
+class Comment:
+    id: int
+    text: Optional[str] = field(default="Deez")
+    lst: list[str] = field(default_factory=list)
+    
+    sheesh: int = field(init=False)
+
+    def __post_init__(self) -> None:
+        self.sheesh = self.id * 1000
+```
+
+```python
+from typing import TypedDict
+
+class User(TypedDict):
+    id: int
+    name: str
+    email: str
+    is_active: bool
+
+user: User = {
+    'id': 1,
+    'name': 'John Doe',
+    'email': 'john.doe@example.com',
+    'is_active': True
+}
+
+def display_user_info(user_info: User) -> None:
+    print(f"User ID: {user_info['id']}")
+    print(f"Name: {user_info['name']}")
+    print(f"Email: {user_info['email']}")
+    print(f"Active: {'Yes' if user_info['is_active'] else 'No'}")
+```
 
 ## Object-Oriented Programming
 
