@@ -11,8 +11,6 @@
 - [Object-Oriented Programming](#object-oriented-programming)
 - [SDK Development](#sdk-development)
 - [Back-End Development](#back-end-development)
-- [CLI Applications](#cli-applications)
-- [Generative AI](#generative-ai)
 
 ## General
 
