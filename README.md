@@ -170,8 +170,8 @@ def choose_variable(option: VariableOptions):
 ## Documentation and Typing
 
 The whole point of documentation and typing is to help other developers and yourself
-later to work with your code. 90% of bugs and exceptions appear because of using incorrect datatypes, trying to access non-existend variables and data, etc. The best way
-to prevent that is helping developer and the IDE to understand what your code takes and what returns.
+later to work with your code. 90% of bugs and exceptions appear because of using incorrect datatypes, trying to access non-existent variables and data, etc. The best way
+to prevent that is helping the developer and IDE to understand what your code takes and what it returns.
 
 ```python
 def function(v: list[float], a: float) -> list[float]:
