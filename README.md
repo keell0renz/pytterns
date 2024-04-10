@@ -277,7 +277,152 @@ def display_user_info(user_info: User) -> None:
 
 ## Object-Oriented Programming
 
-Under construction 🛠️ ...
+### Separate the method and the interface.
+
+If you have a class with complex behavior which depends on many variables it is good
+to separate an actual method (ex. reading a file) and interface (checks for all stuff, and only then executes).
+
+```python
+class Complex:
+    """This is a super duper complex class with a lot of stuff."""
+
+    def __init__(self, something: bool):
+        self._something = something
+
+    def _actual_method(self, anything: Any):
+        print(anything) # Did something!
+
+    def method(self, anything: Any):
+        if self._something:
+            self._actual_method(anything)
+```
+
+### SOLID Principles
+
+The SOLID principles are crucial for creating maintainable, scalable, and robust software. Here's a brief overview and Python examples for each principle.
+
+#### Single Responsibility Principle (SRP)
+
+A class should have one and only one reason to change, meaning it should have only one job.
+
+```python
+class User:
+    def __init__(self, name: str, email: str):
+        self.name = name
+        self.email = email
+
+class UserDB:
+    def __init__(self):
+        self.users = []
+
+    def add_user(self, user: User):
+        self.users.append(user)
+
+    def remove_user(self, user: User):
+        self.users.remove(user)
+```
+
+#### Open/Closed Principle (OCP)
+
+Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+
+```python
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+class AreaCalculator:
+    def total_area(self, shapes):
+        return sum(shape.area() for shape in shapes)
+```
+
+#### Liskov Substitution Principle (LSP)
+
+Objects of a superclass shall be replaceable with objects of a subclass without affecting the correctness of the program.
+
+```python
+class Bird:
+    def fly(self):
+        print("Bird is flying")
+
+class Duck(Bird):
+    def fly(self):
+        print("Duck is flying")
+
+class Ostrich(Bird):
+    def fly(self):
+        raise NotImplementedError("Ostriches cannot fly")
+```
+
+#### Interface Segregation Principle (ISP)
+
+A client should not be forced to implement interfaces it does not use.
+
+```python
+from abc import ABC, abstractmethod
+
+class Printer(ABC):
+    @abstractmethod
+    def print_document(self, document):
+        pass
+
+class Scanner(ABC):
+    @abstractmethod
+    def scan_document(self, document):
+        pass
+
+class MultiFunctionDevice(Printer, Scanner):
+    def print_document(self, document):
+        print(f"Printing: {document}")
+
+    def scan_document(self, document):
+        print(f"Scanning: {document}")
+```
+
+#### Dependency Inversion Principle (DIP)
+
+High-level modules should not depend on low-level modules. Both should depend on abstractions. Additionally, abstractions should not depend on details. Details should depend on abstractions.
+
+```python
+from abc import ABC, abstractmethod
+
+class LightSwitch(ABC):
+    @abstractmethod
+    def turn_on(self):
+        pass
+
+    @abstractmethod
+    def turn_off(self):
+        pass
+
+class LightBulb(LightSwitch):
+    def turn_on(self):
+        print("LightBulb: turned on")
+
+    def turn_off(self):
+        print("LightBulb: turned off")
+
+class PowerSwitch:
+    def __init__(self, l: LightSwitch):
+        self.light = l
+
+    def operate(self, cmd: str):
+        if cmd == "ON":
+            self.light.turn_on()
+        elif cmd == "OFF":
+            self.light.turn_off()
+```
 
 ## SDK Development
 
