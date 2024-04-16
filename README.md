@@ -143,7 +143,7 @@ def not_implemented(var: Any) -> None:
 
 ### Use `Enum` to define a discrete set of values.
 
-Use `Enum` to define a specific set of allowed variables. Good for documentation purposes.
+Use `Enum` to define a specific set of allowed variables. Good for documentation.
 
 ```python
 from enum import Enum
